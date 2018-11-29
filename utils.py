@@ -1,9 +1,12 @@
 import os
 import time
-import socket
-import selenium
 import json
 import math
+import socket
+import random 
+
+import selenium
+
 
 def switch_to_video_frame(driver):
     driver.switch_to.frame(driver.find_elements_by_tag_name('iframe')[0])
@@ -57,6 +60,7 @@ def ans_question(driver):
     if ans == -1: # -1 
         ans = 0
         while ans < len(lis):
+            time.sleep(random.randint(2,9))
             lis[ans].find_element_by_tag_name('label').click()
             driver.find_elements_by_class_name('ans-videoquiz-submit')[0].click()
             time.sleep(1)
@@ -73,6 +77,7 @@ def ans_question(driver):
             ans += 1
     else:
         lis[ans].find_element_by_tag_name('label').click()
+        time.sleep(random.randint(2,9))
         driver.find_elements_by_class_name('ans-videoquiz-submit')[0].click()
     f = open('question.jsonl', 'a')
     f.write(json.dumps({'question': question, 'options': options, 'ans': ans})+'\n')
