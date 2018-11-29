@@ -3,6 +3,9 @@
 ## 安装
 操作系统支持 windows和Linux
 测试过 Windows10和Ubuntu
+
+每十秒检测播放状态，自动恢复暂停，自动回答视频中问题
+
 需要安装的软件有 
 ### python 3 （最好是3.6或以上别的没测过）
 python官网下载
@@ -15,7 +18,9 @@ chrome版本查看：点击右上角菜单——>帮助-->关于chrome
 有时侯版本不对应可能出错
 ### python依赖 selenium
 一条命令
+
 pip install selenium
+
 注意如果装了多个python版本要使用对应的pip
 ## 使用
 ### 启动
@@ -39,4 +44,5 @@ python main.py
 该程序只能刷完视频，无法做作业
 
 刷课过程中出错请重新尝试一下有可能是网络引发的问题
+
 还有问题可以联系我 sxwxs@msn.com
