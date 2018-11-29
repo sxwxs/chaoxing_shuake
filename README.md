@@ -1,10 +1,11 @@
 # 使用说明
 超星慕课刷课
-## 安装
-操作系统支持 windows和Linux
-测试过 Windows10和Ubuntu
 
 每十秒检测播放状态，自动恢复暂停，自动回答视频中问题
+## 安装
+操作系统支持 windows和Linux
+
+测试过 Windows10和Ubuntu
 
 需要安装的软件有 
 ### python 3 （最好是3.6或以上别的没测过）
