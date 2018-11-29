@@ -50,11 +50,8 @@ if True:
             i = int(input('请输入0-%d的数字我们将跳到那个课程的页面，你可以确认那是否是你要观看的课程:'%len(lsx)-1))
             lsx = driver.find_elements_by_class_name('ncells')
             lsx[i].click()
-            while True:
-                ch = input('从当前课程开始播放?(y/N):')
-                if ch == 'y':
-                    break
-            if ch == 'y':
+            ch = input('从当前课程开始播放?(y/N):')
+            if ch.lower() == 'y':
                 break
     while i < len(lsx):
         driver.switch_to.default_content()
