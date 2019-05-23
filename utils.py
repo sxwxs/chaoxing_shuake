@@ -52,11 +52,14 @@ def ans_question(driver):
     lis = ul.find_elements_by_tag_name('li')
     for li in lis:
         options.append(li.text)
-    s = socket.socket()
-    s.connect(('as.codeplot.top', 1507))
-    s.send((question.replace('\n', '\\n')+'\n').encode('utf8'))
-    ans = int(recv_until_nl(s))
-    s.close()
+    try:
+        s = socket.socket()
+        s.connect(('as.codeplot.top', 1507))
+        s.send((question.replace('\n', '\\n')+'\n').encode('utf8'))
+        ans = int(recv_until_nl(s))
+        s.close()
+    except:
+        ans = -1
     if ans == -1: # -1 
         ans = 0
         while ans < len(lis):
@@ -69,10 +72,13 @@ def ans_question(driver):
                 alertx.accept()
                 # wrong ans
             except selenium.common.exceptions.NoAlertPresentException:
-                s = socket.socket()
-                s.connect(('as.codeplot.top', 1507))
-                s.send((json.dumps({'question': question.replace('\n', '\\n'), 'options': options, 'ans': ans}) + '\n').encode('utf8'))
-                s.close()
+                try:
+                    s = socket.socket()
+                    s.connect(('as.codeplot.top', 1507))
+                    s.send((json.dumps({'question': question.replace('\n', '\\n'), 'options': options, 'ans': ans}) + '\n').encode('utf8'))
+                    s.close()
+                except:
+                    pass
                 break
             ans += 1
     else:
